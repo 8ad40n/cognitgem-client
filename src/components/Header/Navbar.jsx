@@ -35,7 +35,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="py-5 bg-red-400">
+    <div className="py-5">
       <div className="container flex justify-between mx-auto">
         <h1>LOGO</h1>
         <div className="hidden md:block">
@@ -49,7 +49,7 @@ export default function Navbar() {
       </div>
       <div className="md:hidden">
         {isOpen && (
-          <div className="p-4 absolute top-16 shadow-lg bg-orange-200 left-0 right-0">
+          <div className="p-4 absolute top-16 shadow-lg left-0 right-0">
             <Links />
           </div>
         )}
