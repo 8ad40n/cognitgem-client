@@ -17,6 +17,13 @@ module.exports = {
       },
     },
     extend: {
+      transitionProperty: {
+        'opacity': 'opacity',
+        'transform': 'transform',
+      },
+      transitionDuration: {
+        '300': '300ms',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
