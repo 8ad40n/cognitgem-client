@@ -1,8 +1,10 @@
+"use client"
+import Heading from "@/components/Header/Heading";
 
 export default function Home() {
   return (
     <>
-      Home
+      <Heading></Heading>
     </>
   );
 }
