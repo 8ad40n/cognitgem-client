@@ -27,7 +27,7 @@ export default function ShineBorder({
         }
       }
       className={cn(
-        "relative grid min-h-[60px] w-fit min-w-[300px] place-items-center rounded-[--border-radius] bg-white p-3 text-black dark:bg-black dark:text-white",
+        "relative grid w-full max-w-[70vw] md:max-w-xl mx-auto place-items-center rounded-[--border-radius] bg-white p-3 text-black dark:bg-black dark:text-white",
         className
       )}>
       <div

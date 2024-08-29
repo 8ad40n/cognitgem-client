@@ -1,25 +1,47 @@
-
-import { Card, CardContent } from "@/components/ui/card"
+import { CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
+import Image from "next/image";
+import ShineBorder from "../magicui/shine-border";
 
 export default function CarouselPage() {
+  const content = [
+    {
+      img: "/assets/images/c1.jpg",
+    },
+    {
+      img: "/assets/images/c3.jpg",
+    },
+    {
+      img: "/assets/images/c2.jpg",
+    },
+  ];
+
   return (
     <Carousel className="w-full max-w-[70vw] md:max-w-xl mx-auto">
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
+        {content.map((item, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
+              <ShineBorder
+                className="relative flex  aspect-square items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl mx-auto"
+                color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+              >
+                <CardContent className="relative w-full aspect-square">
+                  <Image
+                    src={item.img}
+                    alt={`Image ${index + 1}`}
+                    layout="fill"
+                    style={{ objectFit: "cover" }}
+                    className="rounded-lg"
+                  />
                 </CardContent>
-              </Card>
+              </ShineBorder>
             </div>
           </CarouselItem>
         ))}
@@ -27,5 +49,5 @@ export default function CarouselPage() {
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
-  )
+  );
 }
