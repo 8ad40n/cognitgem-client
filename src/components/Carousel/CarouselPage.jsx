@@ -23,7 +23,7 @@ export default function CarouselPage() {
   ];
 
   return (
-    <Carousel className="w-full max-w-[70vw] md:max-w-xl mx-auto">
+    <Carousel className="w-full max-w-[70vw] md:max-w-xl mx-auto mb-10 md:mb-20">
       <CarouselContent>
         {content.map((item, index) => (
           <CarouselItem key={index}>
@@ -36,7 +36,7 @@ export default function CarouselPage() {
                   <Image
                     src={item.img}
                     alt={`Image ${index + 1}`}
-                    layout="fill"
+                    fill
                     style={{ objectFit: "cover" }}
                     className="rounded-lg"
                   />

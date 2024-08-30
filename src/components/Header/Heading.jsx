@@ -14,7 +14,7 @@ export default function Heading() {
         Explore the possibilities of AI chatting with{" "}
         <SparklesText text="Cognitgem" />
       </div>
-      <p className="mt-6 text-center w-[75vw] lg:w-[40vw] font-light">
+      <p className="mt-6 text-center w-[75vw] lg:w-[40vw] font-light text-sm md:text-base">
         Unleash the power of AI within Congnitgem. Upgrade your productivity
         with Cognitgem, the AI chat app.
       </p>
