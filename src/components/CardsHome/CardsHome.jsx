@@ -12,7 +12,7 @@ export default function CardsHome() {
   const { theme } = useTheme();
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mb-10 md:mb-20">
       <h1 className="text-center text-xl md:text-4xl font-medium mb-6 md:mb-8">Chat Smarter, Now Harder <br /> with Cognitgem</h1>
       <div
         className={
