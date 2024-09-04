@@ -8,12 +8,12 @@ export default function GenerativeHome() {
       <h1 className="text-center text-2xl md:text-4xl font-medium mb-2 md:mb-4">
         Generative AI made for creators.
       </h1>
-      <p className="text-xs md:text-sm font-extralight text-center mb-3 md:mb-4">
+      <p className="text-xs md:text-sm font-extralight text-center mb-1">
         Cognitgem unlocks the potential of AI-powered applications
       </p>
-      <div className="flex justify-center gap-32 items-center">
+      <div className="lg:flex lg:justify-center lg:gap-24 lg:items-center">
         <div>
-          <Image className="w-[35vw]" src={potraitHome} alt="potraitHome"></Image>
+          <Image className="w-[75vw] lg:w-[35vw] lg:pt-12 mx-auto rounded-2xl" src={potraitHome} alt="potraitHome"></Image>
         </div>
         <div>
           <h3 className="text-lg text-center lg:text-start md:text-3xl font-medium lg:w-[25vw] mb-3 md:mb-5">

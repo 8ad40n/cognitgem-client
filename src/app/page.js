@@ -1,4 +1,5 @@
 "use client"
+import AccordionHome from "@/components/AccordionHome/AccordionHome";
 import CardsHome from "@/components/CardsHome/CardsHome";
 import CarouselPage from "@/components/Carousel/CarouselPage";
 import GenerativeHome from "@/components/GenerativeHome/GenerativeHome";
@@ -13,6 +14,7 @@ export default function Home() {
       <CardsHome></CardsHome>
       <InteractiveIconCloud></InteractiveIconCloud>
       <GenerativeHome></GenerativeHome>
+      <AccordionHome></AccordionHome>
     </>
   );
 }
