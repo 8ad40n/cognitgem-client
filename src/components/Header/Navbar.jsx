@@ -42,12 +42,12 @@ export default function Navbar() {
   };
 
   return (
-    <div className="py-5">
-      <div className="container flex items-center justify-between mx-auto">
-        <div className="flex items-center gap-2">
+    <div className="py-5 container">
+      <div className="flex items-center justify-between mx-auto">
+        <Link href="/" className="flex items-center gap-2">
           <RiAiGenerate className="text-xl md:text-3xl font-extrabold text-purple-600"/>
-          <h1 className="text-lg md:text-2xl font-medium">Cognit<span className="text-purple-600">Gem</span></h1>
-        </div>
+          <h1 className="text-lg md:text-2xl font-medium">Cognit<span className="text-purple-600 ">Gem</span></h1>
+        </Link>
         <div className="hidden md:block text-[#a1a1a1]">
           <Links />
         </div>
