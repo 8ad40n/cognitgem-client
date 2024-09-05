@@ -3,7 +3,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { RiAiGenerate } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
+import { Button } from "../ui/button";
 
 const Links = () => {
   const pathname = usePathname();
@@ -15,7 +17,7 @@ const Links = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 md:flex-row">
+    <div className="flex flex-col gap-6 md:flex-row md:items-center">
       <Link href="/" className={getLinkClass("/")}>
         Home
       </Link>
@@ -24,6 +26,9 @@ const Links = () => {
       </Link>
       <Link href="/contact" className={getLinkClass("/contact")}>
         Contact
+      </Link>
+      <Link href="/login">
+        <Button>Login</Button>
       </Link>
     </div>
   );
@@ -38,8 +43,11 @@ export default function Navbar() {
 
   return (
     <div className="py-5">
-      <div className="container flex justify-between mx-auto">
-        <h1>LOGO</h1>
+      <div className="container flex items-center justify-between mx-auto">
+        <div className="flex items-center gap-2">
+          <RiAiGenerate className="text-xl md:text-3xl font-extrabold text-purple-600"/>
+          <h1 className="text-lg md:text-2xl font-medium">Cognit<span className="text-purple-600">Gem</span></h1>
+        </div>
         <div className="hidden md:block text-[#a1a1a1]">
           <Links />
         </div>
@@ -53,7 +61,7 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className={`md:hidden transition-opacity duration-300 absolute top-16 left-0 right-0 z-20 bg-zinc-900 text-[#c7c7c7] ${
+        className={`md:hidden transition-opacity duration-300 absolute top-16 left-0 h-[100vh] text-center right-0 z-20 bg-zinc-900 text-[#c7c7c7] ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
