@@ -6,7 +6,6 @@ import { FcGoogle } from "react-icons/fc";
 export default function Login() {
   const handleSocial = async(provider) =>{
     const res = await signIn(provider);
-
   }
   return (
     <div className="container m-10 mx-auto">
