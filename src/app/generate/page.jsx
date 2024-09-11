@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import axios from "axios";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useState } from "react";
 import { IoSend } from "react-icons/io5";
 import ReactMarkdown from "react-markdown";
@@ -10,6 +12,10 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function ChatPage() {
+
+  const session = useSession();
+  console.log(session.data);
+
   const [conversation, setConversation] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -75,6 +81,18 @@ export default function ChatPage() {
     <div className="bg-[#131314]">
       <div className="container mx-auto p-4">
         <ScrollArea className="w-full h-[75vh] rounded-md p-4">
+        {session?.data?.user && (
+            <div className="flex items-center mb-4">
+              <Image
+                src={session.data.user.image}
+                alt={session.data.user.name}
+                width={50} 
+                height={50}
+                className="rounded-full mr-4"
+              />
+              <h1 className="text-white font-bold">{session.data.user.name}</h1>
+            </div>
+          )}
           {conversation.map((chat, index) => (
             <div
               key={index}
