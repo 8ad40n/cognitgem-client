@@ -1,8 +1,10 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import axios from "axios";
 import { useState } from "react";
+import { IoSend } from "react-icons/io5";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -22,7 +24,9 @@ export default function ChatPage() {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5000/generate", { prompt });
+      const res = await axios.post("http://localhost:5000/generate", {
+        prompt,
+      });
       const generatedText = res.data.text;
 
       setConversation((prev) => [
@@ -34,7 +38,10 @@ export default function ChatPage() {
       console.error("Error generating content:", error);
       setConversation((prev) => [
         ...prev,
-        { sender: "ai", message: "Error generating content. Please try again." },
+        {
+          sender: "ai",
+          message: "Error generating content. Please try again.",
+        },
       ]);
       setLoading(false);
     }
@@ -65,24 +72,49 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">AI Chat</h1>
-
-      <div className="mb-6 border border-gray-300 p-4 rounded-lg h-96 overflow-y-auto">
-        {conversation.map((chat, index) => (
-          <div key={index} className={`mb-4 ${chat.sender === "user" ? "text-right" : "text-left"}`}>
-            <div className={`inline-block p-2 rounded-lg ${chat.sender === "user" ? "bg-blue-500 text-white" : "bg-gray-200 text-black"}`}>
-              {renderMessage(chat.message)}
+    <div className="bg-[#131314]">
+      <div className="container mx-auto p-4">
+        <ScrollArea className="w-full h-[75vh] rounded-md p-4">
+          {conversation.map((chat, index) => (
+            <div
+              key={index}
+              className={`mb-4 ${
+                chat.sender === "user" ? "text-right" : "text-left"
+              }`}
+            >
+              <div
+                className={`inline-block p-2 rounded-lg ${
+                  chat.sender === "user"
+                    ? "bg-[#2f2f2f] text-white px-3 py-2 rounded-xl"
+                    : ""
+                }`}
+              >
+                <div>
+                  {chat.sender === "user" ? "User:" : "AI:"}
+                </div>
+                {renderMessage(chat.message)}
+              </div>
             </div>
-          </div>
-        ))}
-        {loading && <div className="text-center text-gray-500">Generating response...</div>}
-      </div>
+          ))}
+          {loading && (
+            <div className="text-center text-gray-500">
+              Generating response...
+            </div>
+          )}
+        </ScrollArea>
 
-      <form onSubmit={handleForm} className="flex items-center">
-        <Input type="text" placeholder="Write your prompt..." name="prompt" className="flex-1 mr-2" />
-        <Button type="submit" disabled={loading}>Send</Button>
-      </form>
+        <form onSubmit={handleForm} className="flex items-center mt-4">
+          <Input
+            type="text"
+            placeholder="Write your prompt..."
+            name="prompt"
+            className="flex-1 mr-2"
+          />
+          <Button type="submit" disabled={loading}>
+            <IoSend></IoSend>
+          </Button>
+        </form>
+      </div>
     </div>
   );
 }
