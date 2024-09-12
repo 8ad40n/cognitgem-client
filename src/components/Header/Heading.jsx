@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { ArrowRightIcon } from "lucide-react";
+import Link from "next/link";
 import AnimatedShinyText from "../magicui/animated-shiny-text";
 import DotPattern from "../magicui/dot-pattern";
 import SparklesText from "../magicui/sparkles-text";
@@ -31,7 +32,7 @@ export default function Heading() {
           )}
         >
           <AnimatedShinyText className="inline-flex items-center justify-center text-white px-4 py-1 md:py-2 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-            <span>✨ Introducing Cognitgem</span>
+            <Link href="/generate">✨ Introducing Cognitgem</Link>
             <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
           </AnimatedShinyText>
         </div>
