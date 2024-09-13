@@ -1,4 +1,6 @@
 "use client";
+import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -9,6 +11,7 @@ import { Button } from "../ui/button";
 
 const Links = () => {
   const pathname = usePathname();
+  const session = useSession();
 
   const getLinkClass = (path) => {
     return pathname === path
@@ -18,18 +21,40 @@ const Links = () => {
 
   return (
     <div className="flex flex-col gap-6 md:flex-row md:items-center">
+      <div className="md:hidden">
+        {session?.data ? (
+          <div>
+            <Image height={60} width={60} className="rounded-full mx-auto mb-3" src={session.data?.user?.image}></Image>
+            <h1 className="text-center">{session.data?.user?.name}</h1>
+            <hr className="container my-3"></hr>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
       <Link href="/" className={getLinkClass("/")}>
         Home
       </Link>
-      <Link href="/about" className={getLinkClass("/about")}>
-        About
+      <Link href="/generate" className={getLinkClass("/about")}>
+        Generate
       </Link>
-      <Link href="/contact" className={getLinkClass("/contact")}>
-        Contact
-      </Link>
-      <Link href="/login">
-        <Button>Login</Button>
-      </Link>
+      {session.data ? (
+        <div className="md:flex md:items-center md:gap-2">
+          <Button onClick={() => signOut()} variant="log">
+            Logout
+          </Button>
+          <Image
+            width={40}
+            height={40}
+            className="hidden md:flex rounded-full"
+            src={session.data?.user?.image}
+          ></Image>
+        </div>
+      ) : (
+        <Link href="/login">
+          <Button variant="log">Login</Button>
+        </Link>
+      )}
     </div>
   );
 };
@@ -45,8 +70,10 @@ export default function Navbar() {
     <div className="py-5 container">
       <div className="flex items-center justify-between mx-auto">
         <Link href="/" className="flex items-center gap-2">
-          <RiAiGenerate className="text-xl md:text-3xl font-extrabold text-purple-600"/>
-          <h1 className="text-lg md:text-2xl font-medium">Cognit<span className="text-purple-600 ">Gem</span></h1>
+          <RiAiGenerate className="text-xl md:text-3xl font-extrabold text-purple-600" />
+          <h1 className="text-lg md:text-2xl font-medium">
+            Cognit<span className="text-purple-600 ">Gem</span>
+          </h1>
         </Link>
         <div className="hidden md:block text-[#a1a1a1]">
           <Links />

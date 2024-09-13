@@ -89,10 +89,11 @@ export default function ChatPage() {
                 className="text-xl md:text-2xl lg:text-3xl font-medium mb-3 text-black dark:text-white"
                 text={`Hello, ${session.data.user.name}`}
               />
-              <TypingAnimation
+              <div
                 className="text-lg md:text-xl lg:text-2xl font-medium text-black dark:text-[#444746]"
-                text="How can I help you today?"
-              />
+              >
+                How can I help you today?
+              </div>
             </div>
           )}
 
@@ -106,7 +107,7 @@ export default function ChatPage() {
               <div
                 className={`inline-block p-2 rounded-lg ${
                   chat.sender === "user"
-                    ? "text-white px-3 py-2 rounded-xl text-left"
+                    ? "text-white bg-[#2f2f2f] px-3 py-2 rounded-xl text-left"
                     : "text-white px-3 py-2 rounded-xl text-left"
                 }`}
               >
