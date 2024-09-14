@@ -1,11 +1,17 @@
 "use client"
 import { signIn } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 export default function Login() {
+  const searchParams = useSearchParams();
+  const path = searchParams.get("redirect");
   const handleSocial = async(provider) =>{
-    const res = await signIn(provider);
+    const res = await signIn(provider, {
+      redirect: true,
+      callbackUrl: path ? path : "/"
+    });
   }
   return (
     <div className="container m-10 mx-auto">

@@ -24,7 +24,7 @@ const Links = () => {
       <div className="md:hidden">
         {session?.data ? (
           <div>
-            <Image height={60} width={60} className="rounded-full mx-auto mb-3" src={session.data?.user?.image}></Image>
+            <Image height={60} width={60} className="rounded-full mx-auto mb-3" src={session.data?.user?.image} alt="profile"></Image>
             <h1 className="text-center">{session.data?.user?.name}</h1>
             <hr className="container my-3"></hr>
           </div>
