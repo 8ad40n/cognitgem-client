@@ -1,13 +1,13 @@
 import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
 } from "@/components/ui/accordion";
 
 export default function AccordionHome() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mb-8">
       <h1 className="text-center text-2xl md:text-4xl font-medium mb-2 md:mb-4">
         Frequently Asked Questions
       </h1>
