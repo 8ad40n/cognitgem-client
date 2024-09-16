@@ -82,16 +82,14 @@ export default function ChatPage() {
   return (
     <div className="bg-[#131314] min-h-screen">
       <div className="container mx-auto px-4 md:px-8">
-        <ScrollArea className="w-full h-[70vh] md:h-[75vh] rounded-md text-xs md:text-base">
+        <ScrollArea className="w-full h-[80vh] md:h-[75vh] rounded-md text-xs md:text-base">
           {session?.data?.user && (
             <div className="text-center mb-4 mt-6">
               <TypingAnimation
                 className="text-xl md:text-2xl lg:text-3xl font-medium mb-3 text-black dark:text-white"
                 text={`Hello, ${session.data.user.name}`}
               />
-              <div
-                className="text-lg md:text-xl lg:text-2xl font-medium text-black dark:text-[#444746]"
-              >
+              <div className="text-lg md:text-xl lg:text-2xl font-medium text-black dark:text-[#444746]">
                 How can I help you today?
               </div>
             </div>
@@ -141,24 +139,26 @@ export default function ChatPage() {
           )}
         </ScrollArea>
 
-        <form
-          onSubmit={handleForm}
-          className="flex items-center mt-4 w-full md:w-[90vw] lg:w-[70vw] xl:w-[60vw] mx-auto"
-        >
-          <input
-            type="text"
-            placeholder="Write your prompt..."
-            name="prompt"
-            className="flex-1 mr-2 h-10 md:h-12 lg:h-14 rounded-xl pl-4 bg-[#1e1f20] text-sm md:text-base"
-          />
-          <Button
-            type="submit"
-            className="h-10 md:h-12 lg:h-14 bg-[#1e1f20] border text-white rounded-xl"
-            disabled={loading}
+        <div className="flex justify-center items-center">
+          <form
+            onSubmit={handleForm}
+            className="flex items-center mt-4 w-full md:w-[90vw] lg:w-[70vw] xl:w-[60vw] mx-auto"
           >
-            <IoSend></IoSend>
-          </Button>
-        </form>
+            <input
+              type="text"
+              placeholder="Write your prompt..."
+              name="prompt"
+              className="flex-1 mr-2 h-10 md:h-12 lg:h-14 rounded-xl pl-4 bg-[#1e1f20] text-sm md:text-base"
+            />
+            <Button
+              type="submit"
+              className="h-10 md:h-12 lg:h-14 bg-[#1e1f20] border text-white rounded-xl"
+              disabled={loading}
+            >
+              <IoSend></IoSend>
+            </Button>
+          </form>
+        </div>
       </div>
     </div>
   );
