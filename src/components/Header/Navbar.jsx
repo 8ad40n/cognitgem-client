@@ -21,7 +21,7 @@ const Links = ({ handleOpen }) => {
 
   return (
     <div className="flex flex-col gap-6 md:flex-row md:items-center">
-      <div className="md:hidden">
+      <div className="md:hidden mt-10">
         {session?.data ? (
           <div>
             <Image
