@@ -9,10 +9,10 @@ import { RiAiGenerate } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
 import { Button } from "../ui/button";
 
-const Links = () => {
+const Links = ({ handleOpen }) => {
   const pathname = usePathname();
   const session = useSession();
-  
+
   const getLinkClass = (path) => {
     return pathname === path
       ? "text-white font-semibold hover:text-bebebe"
@@ -24,23 +24,35 @@ const Links = () => {
       <div className="md:hidden">
         {session?.data ? (
           <div>
-            <Image height={60} width={60} className="rounded-full mx-auto mb-3" src={session.data?.user?.image} alt="profile"></Image>
+            <Image
+              height={60}
+              width={60}
+              className="rounded-full mx-auto mb-3"
+              src={session.data?.user?.image}
+              alt="profile"
+            />
             <h1 className="text-center">{session.data?.user?.name}</h1>
-            <hr className="container my-3"></hr>
+            <hr className="container my-3" />
           </div>
         ) : (
           ""
         )}
       </div>
-      <Link href="/" className={getLinkClass("/")}>
+      <Link href="/" className={getLinkClass("/")} onClick={handleOpen}>
         Home
       </Link>
-      <Link href="/generate" className={getLinkClass("/about")}>
+      <Link href="/generate" className={getLinkClass("/generate")} onClick={handleOpen}>
         Generate
       </Link>
       {session.data ? (
         <div className="md:flex md:items-center md:gap-2">
-          <Button onClick={() => signOut()} variant="log">
+          <Button
+            onClick={() => {
+              signOut();
+              handleOpen();
+            }}
+            variant="log"
+          >
             Logout
           </Button>
           <Image
@@ -48,10 +60,10 @@ const Links = () => {
             height={40}
             className="hidden md:flex rounded-full"
             src={session.data?.user?.image}
-          ></Image>
+          />
         </div>
       ) : (
-        <Link href="/login">
+        <Link href="/login" onClick={handleOpen}>
           <Button variant="log">Login</Button>
         </Link>
       )}
@@ -76,7 +88,7 @@ export default function Navbar() {
           </h1>
         </Link>
         <div className="hidden md:block text-[#a1a1a1]">
-          <Links />
+          <Links handleOpen={handleOpen} /> 
         </div>
         <div className="md:hidden">
           <button
@@ -93,7 +105,7 @@ export default function Navbar() {
         }`}
       >
         <div className="p-4">
-          <Links />
+          <Links handleOpen={handleOpen} /> 
         </div>
       </div>
     </div>
