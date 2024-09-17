@@ -29,9 +29,12 @@ export default function ChatPage() {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5000/generate", {
-        prompt,
-      });
+      const res = await axios.post(
+        "https://cognitgem-server.vercel.app/generate",
+        {
+          prompt,
+        }
+      );
       const generatedText = res.data.text;
 
       setConversation((prev) => [
@@ -55,7 +58,6 @@ export default function ChatPage() {
   const renderMessage = (message) => {
     return (
       <ReactMarkdown
-        children={message}
         components={{
           code({ inline, className, children }) {
             const match = /language-(\w+)/.exec(className || "");
@@ -75,7 +77,9 @@ export default function ChatPage() {
             );
           },
         }}
-      />
+      >
+        {message}
+      </ReactMarkdown>
     );
   };
 

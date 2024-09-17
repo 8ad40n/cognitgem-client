@@ -18,10 +18,11 @@ const handler = NextAuth({
       clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET,
     }),
   ],
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
   callbacks: {
     async signIn({ user, account }) {
       try {
-        const res = await axios.post("http://localhost:5000/user", {
+        const res = await axios.post("https://cognitgem-server.vercel.app/user", {
           name: user.name,
           email: user.email,
           image: user.image,

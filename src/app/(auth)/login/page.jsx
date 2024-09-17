@@ -10,6 +10,7 @@ export default function Login() {
   const path = searchParams.get("redirect");
 
   const handleSocial = async (provider) => {
+    
     const res = await signIn(provider, {
       redirect: true,
       callbackUrl: path ? path : "/",
