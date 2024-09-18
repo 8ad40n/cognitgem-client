@@ -38,20 +38,20 @@ export default function InteractiveIconCloud() {
     <div className="container mx-auto mb-10 md:mb-20">
       <div className="border py-16 px-6 rounded-xl lg:flex lg:flex-row lg:justify-between lg:items-center flex flex-col-reverse lg:px-32">
         <div>
-          <h3 className="text-xl text-center lg:text-start md:text-5xl font-medium lg:w-[25vw] mb-4 md:mb-6">
+          <h3 className="text-xl text-start lg:text-start md:text-5xl font-medium lg:w-[25vw] mb-4 md:mb-6">
             AI chat app for seamless collaboration
           </h3>
-          <div className="flex gap-2 items-center mb-2 md:mb-3 justify-center lg:justify-start">
+          <div className="flex gap-2 items-center mb-2 md:mb-3 justify-start lg:justify-start pl-4 md:pl-0">
             <IoCheckmark className="text-center rounded-full bg-[#9b71e4] p-1 text-black text-lg" />
             <p className="font-light text-sm md:text-base">
               Seamless Integration
             </p>
           </div>
-          <div className="flex gap-2 items-center mb-2 md:mb-3 justify-center lg:justify-start">
+          <div className="flex gap-2 items-center mb-2 md:mb-3 justify-start lg:justify-start pl-4 md:pl-0">
             <IoCheckmark className="text-center rounded-full bg-[#9b71e4] p-1 text-black text-lg" />
             <p className="font-light text-sm md:text-base">Smart Automation</p>
           </div>
-          <div className="flex gap-2 items-center mb-2 md:mb-3 justify-center lg:justify-start">
+          <div className="flex gap-2 items-center mb-2 md:mb-3 justify-start lg:justify-start pl-4 md:pl-0">
             <IoCheckmark className="text-center rounded-full bg-[#9b71e4] p-1 text-black text-lg" />
             <p className="font-light text-sm md:text-base">
               Top-notch Security

@@ -8,7 +8,7 @@ import {
 export default function AccordionHome() {
   return (
     <div className="container mx-auto mb-8">
-      <h1 className="text-center text-2xl md:text-4xl font-medium mb-2 md:mb-4">
+      <h1 className="text-center text-2xl md:text-4xl font-medium mb-4 md:mb-8">
         Frequently Asked Questions
       </h1>
       <Accordion type="single" collapsible className="w-full border px-6 py-2">

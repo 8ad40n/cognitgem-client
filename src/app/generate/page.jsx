@@ -84,11 +84,11 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="bg-[#131314] min-h-screen">
+    <div className="mb-0">
       <div className="container mx-auto px-4 md:px-8">
-        <ScrollArea className="w-full h-[80vh] md:h-[75vh] rounded-md text-xs md:text-base">
+        <ScrollArea className="w-full h-[82vh] md:h-[72vh] rounded-md text-xs md:text-base">
           {session?.data?.user && (
-            <div className="text-center mb-4 mt-6">
+            <div className="text-center mb-4 mt-14 md:mt-20">
               <TypingAnimation
                 className="text-xl md:text-2xl lg:text-3xl font-medium mb-3 text-black dark:text-white"
                 text={`Hello, ${session.data.user.name}`}
@@ -102,43 +102,42 @@ export default function ChatPage() {
           {conversation.map((chat, index) => (
             <div
               key={index}
-              className={`mb-4 flex items-start ${
-                chat.sender === "user" ? "justify-start" : "justify-start"
-              }`}
+              className={`mb-4 flex items-start gap-4`} 
             >
-              <div
-                className={`inline-block p-2 rounded-lg ${
-                  chat.sender === "user"
-                    ? "text-white bg-[#2f2f2f] px-3 py-2 rounded-xl text-left"
-                    : "text-white px-3 py-2 rounded-xl text-left"
-                }`}
-              >
-                <div>
-                  {chat.sender === "user" ? (
-                    <Image
-                      src={session.data.user.image}
-                      alt={session.data.user.name}
-                      width={30}
-                      height={30}
-                      className="rounded-full mb-2"
-                    />
-                  ) : (
-                    <Image
-                      src="/assets/images/icon.png"
-                      alt="AI"
-                      width={30}
-                      height={30}
-                      className="rounded-full mb-2"
-                    />
-                  )}
+              {chat.sender === "user" && (
+                <div className="flex items-start gap-2"> 
+                  <Image
+                    src={session.data.user.image}
+                    alt={session.data.user.name}
+                    width={30}
+                    height={30}
+                    className="rounded-full mb-2"
+                  />
+                  <div className="inline-block bg-[#2f2f2f] text-white px-2 py-2 rounded-xl text-left">
+                    {renderMessage(chat.message)}
+                  </div>
                 </div>
-                {renderMessage(chat.message)}
-              </div>
+              )}
+
+              {chat.sender === "ai" && (
+                <div className="flex items-start gap-2"> 
+                  <Image
+                    src="/assets/images/icon.png"
+                    alt="AI"
+                    width={30}
+                    height={30}
+                    className="rounded-full mb-2"
+                  />
+                  <div className="inline-block text-white pl-2 pr-4 py-2 rounded-xl text-left">
+                    {renderMessage(chat.message)}
+                  </div>
+                </div>
+              )}
             </div>
           ))}
           {loading && (
-            <div className="text-center text-gray-500">
-              Generating response...
+            <div className="text-center text-gray-500 flex items-end justify-center">
+              <p>Generating response...</p>
             </div>
           )}
         </ScrollArea>
@@ -159,7 +158,7 @@ export default function ChatPage() {
               className="h-10 md:h-12 lg:h-14 bg-[#1e1f20] border text-white rounded-xl"
               disabled={loading}
             >
-              <IoSend></IoSend>
+              <IoSend />
             </Button>
           </form>
         </div>

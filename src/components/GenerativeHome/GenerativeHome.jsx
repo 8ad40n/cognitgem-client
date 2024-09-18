@@ -21,20 +21,20 @@ export default function GenerativeHome() {
             ></Image>
           </div>
           <div>
-            <h3 className="text-lg text-center lg:text-start md:text-3xl font-medium lg:w-[25vw] mb-3 md:mb-5">
+            <h3 className="text-lg text-start lg:text-start md:text-3xl font-medium lg:w-[25vw] mb-3 md:mb-5">
               Smartest AI
             </h3>
-            <div className="flex gap-2 items-center mb-2 md:mb-3 justify-center lg:justify-start">
+            <div className="flex gap-2 items-center mb-2 md:mb-3 justify-start lg:justify-start pl-4 md:pl-0">
               <IoCheckmark className="text-center rounded-full bg-[#9b71e4] p-1 text-black text-lg" />
               <p className="font-light text-sm md:text-base">Text generating</p>
             </div>
-            <div className="flex gap-2 items-center mb-2 md:mb-3 justify-center lg:justify-start">
+            <div className="flex gap-2 items-center mb-2 md:mb-3 justify-start lg:justify-start pl-4 md:pl-0">
               <IoCheckmark className="text-center rounded-full bg-[#9b71e4] p-1 text-black text-lg" />
               <p className="font-light text-sm md:text-base">
                 Quality enhancement
               </p>
             </div>
-            <div className="flex gap-2 items-center mb-2 md:mb-3 justify-center lg:justify-start">
+            <div className="flex gap-2 items-center mb-2 md:mb-3 justify-start lg:justify-start pl-4 md:pl-0">
               <IoCheckmark className="text-center rounded-full bg-[#9b71e4] p-1 text-black text-lg" />
               <p className="font-light text-sm md:text-base">
                 Seamless integration

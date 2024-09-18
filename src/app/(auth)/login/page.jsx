@@ -17,8 +17,8 @@ export default function Login() {
     });
   };
   return (
-    <div className="container my-2 mx-auto min-h-screen flex justify-center items-center">
-      <div className="border px-6 py-20 bg-[#161b22] shadow-2xl rounded-2xl">
+    <div className="container my-2 mx-auto h-[75vh] flex justify-center items-center">
+      <div className="px-6 py-10 shadow-2xl rounded-2xl">
         <div className="flex justify-center mb-4">
           <Image
             src="/assets/images/icon.png"
