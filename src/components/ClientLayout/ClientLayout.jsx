@@ -1,5 +1,4 @@
-"use client"; 
-
+"use client";
 
 import { usePathname } from "next/navigation";
 import Footer from "../Footer/Footer";
@@ -10,8 +9,10 @@ export default function ClientLayout({ children }) {
 
   return (
     <>
-      <Navbar />
-      <hr />
+      <div className="sticky top-0 z-20 bg-white dark:bg-black">
+        <Navbar />
+        <hr />
+      </div>
       <main className="flex-grow">{children}</main>
       {pathname !== "/login" && pathname !== "/generate" && <Footer />}
     </>
