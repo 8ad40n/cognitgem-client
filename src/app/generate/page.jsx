@@ -77,7 +77,10 @@ export default function ChatPage() {
             );
           },
           strong({ children }) {
-            return <strong className="text-xl">{children}</strong>;
+            return <div>
+              <br />
+              <strong className="text-lg md:text-xl">{children}</strong>
+            </div>;
           },
         }}
       >
