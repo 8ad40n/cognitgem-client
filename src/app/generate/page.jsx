@@ -76,17 +76,21 @@ export default function ChatPage() {
               <code className={className}>{children}</code>
             );
           },
+          strong({ children }) {
+            return <strong className="text-xl">{children}</strong>;
+          },
         }}
       >
         {message}
       </ReactMarkdown>
     );
   };
+  
 
   return (
     <div className="mb-0">
       <div className="container mx-auto px-4 md:px-8">
-        <ScrollArea className="w-full h-[calc(100vh-150px)] md:h-[calc(100vh-170px)] rounded-md ">
+        <ScrollArea className="w-full h-[calc(100vh-150px)] md:h-[calc(100vh-170px)] rounded-md text-sm md:text-base">
           {session?.data?.user && (
             <div className="text-center mb-8 mt-14 md:mt-20">
               <TypingAnimation
